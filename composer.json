@@ -1,7 +1,7 @@
 {
-    "name": "laravel/lumen",
-    "description": "The Laravel Lumen Framework.",
-    "keywords": ["framework", "laravel", "lumen"],
+    "name": "payste",
+    "description": "A website for securely storing text.",
+    "keywords": ["paste", "text", "sourcecode"],
     "license": "MIT",
     "type": "project",
     "require": {
