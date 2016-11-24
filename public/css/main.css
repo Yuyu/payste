@@ -1,0 +1,12 @@
+.container {
+    width: 100%;
+}
+
+.CodeMirror {
+  border: 1px solid #eee;
+  height: calc(100vh - 140px);
+}
+
+.navbar-brand {
+    margin-right: 10px;
+}
