@@ -16,9 +16,9 @@ Try out a live version at [paste.yuyu.io](https://paste.yuyu.io/)!
 
 To start, (after checking out the repo, obviously), navigate to your directory and copy `.env.sample` to `.env`. Within this `.env` file, all of the configuration is done. Specify your database type and connection details, **and don't forget to set the APP_KEY to something very secret!**
 
-Now, install all the dependencies by executing `composer update`.
+Now, install all the dependencies by executing `composer install`.
 
-Afterwards, execute `php artisan migrate` to generate the database tables. Now you're pretty much done! Make your favorite webserver serve PHP on `public/` and that's it. A modern nginx config running on Ubuntu would be something like this:
+Afterwards, execute `php artisan migrate` to generate the database tables. Now you're pretty much done! Make your favorite webserver serve PHP on `public/` and that's it. A modern nginx config running on Ubuntu using PHP 7 would be something like this:
 ```
 root /var/www/payste/public;
 index index.php;
@@ -35,3 +35,8 @@ location = /index.php {
     fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
 }
 ```
+
+## Notes
+If you get an error for using SQLite, you will need to create the database file manually. The database file to be used is defined within the `DB_DATABASE` env variable (you should use an absolute path).
+
+So, for example, if you've set your `DB_DATABASE` to `/var/www/paste/storage/database.sqlite`, you will need to execute `touch /var/www/paste/storage/database.sqlite` before executing `php artisan migrate`.
