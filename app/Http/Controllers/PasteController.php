@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use \Illuminate\Http\Request;
 use Laravel\Lumen\Routing\Controller as BaseController;
 
@@ -52,7 +53,8 @@ class PasteController extends BaseController
 
             $id = app("db")->table("pastes")->insert([
                 "token" => $token,
-                "content" => $request->get("tabs")
+                "content" => $request->get("tabs"),
+                "created_at" => Carbon::now()->toDateTimeString()
             ]);
 
             if ($id) {

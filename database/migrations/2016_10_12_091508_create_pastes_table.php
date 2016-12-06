@@ -20,7 +20,7 @@ class CreatePastesTable extends Migration
             $table->boolean("encrypted")->default(false);
             $table->text("content");
             $table->string("syntax");
-            $table->dateTime("created_at")->default(app("db")->raw("NOW()"));
+            $table->dateTime("created_at");
 
             $table->integer("user_id")->unsigned();
 
