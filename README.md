@@ -5,10 +5,18 @@ Its security lies within the client-based encryption and minimal footprint in th
 
 Try out a live version at [paste.yuyu.io](https://paste.yuyu.io/)!
 
+## Dependencies
+- A recent PHP version (>= 5.6.4)
+- [Composer](https://getcomposer.org/) (to install framework dependencies)
+- Some kind of database server (I personally use MySQL, but just using SQLite or anything else should be fine)
+- The PHP modules for your database (PDO for MySQL, etc.)
+- A webserver!
+
 ## Installing
-Installing is as simple as it gets! Since everything is already setup, all you have to do is configure the whole thing - which is not much.
 
 To start, (after checking out the repo, obviously), navigate to your directory and copy `.env.sample` to `.env`. Within this `.env` file, all of the configuration is done. Specify your database type and connection details, **and don't forget to set the APP_KEY to something very secret!**
+
+Now, install all the dependencies by executing `composer update`.
 
 Afterwards, execute `php artisan migrate` to generate the database tables. Now you're pretty much done! Make your favorite webserver serve PHP on `public/` and that's it. A modern nginx config running on Ubuntu would be something like this:
 ```
