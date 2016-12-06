@@ -37,6 +37,6 @@ location = /index.php {
 ```
 
 ## Notes
-If you get an error for using SQLite, you will need to create the database file manually. The database file to be used is defined within the `DB_DATABASE` env variable (you should use an absolute path).
-
-So, for example, if you've set your `DB_DATABASE` to `/var/www/paste/storage/database.sqlite`, you will need to execute `touch /var/www/paste/storage/database.sqlite` before executing `php artisan migrate`.
+- If you get an error for using SQLite, you will need to create the database file manually. The database file to be used is defined within the `DB_DATABASE` env variable (you should use an absolute path).
+ - So, for example, if you've set your `DB_DATABASE` to `/var/www/paste/storage/database.sqlite`, you will need to execute `touch /var/www/paste/storage/database.sqlite` before executing `php artisan migrate`.
+- If you're using apache2, you need to enable mod_rewrite as well as .htaccess overrides for the public/ directory.
