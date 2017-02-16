@@ -1,37 +1,12 @@
+import './jquery-3.1.1.js';
+import './flat-ui.js';
+import {encryptContent, generatePassword} from './encryption.js';
+
 const editors = [];
 const modeData = [];
 var modeSelect;
 
-$(window).bind('load', function() {
-    CodeMirror.modeURL = 'js/mode/%N/%N.js';
-
-    CodeMirror.modeInfo.forEach(meta => {
-        modeData.push({id: meta.mime, mode: meta.mode, text: meta.name});
-    });
-
-    addEditorTab();
-
-    if ($('[data-toggle="select"]').length) {
-         modeSelect = $('[data-toggle="select"]').select2({
-            data: modeData,
-            dropdownCssClass: 'show-select-search'
-        });
-
-        modeSelect.on('change', e => {
-            let editor = editors[$('#tab-list li.active a').data('id')],
-                mode = e.val || modeSelect.val() || 'text/plain';
-
-            editor.setOption('mode', mode);
-            CodeMirror.autoLoadMode(editor, CodeMirror.findModeByMIME(mode).mode);
-
-            editor.focus();
-        });
-
-        modeSelect.val('text/plain').trigger('change');
-    }
-});
-
-function doPaste() {
+export function doPaste() {
     let data = {
         tabs: [],
     };
@@ -66,7 +41,7 @@ function createEditor(target, mode) {
     });;
 }
 
-function addEditorTab() {
+export function addEditorTab() {
     const length = editors.length;
 
     if (length >= 10) {
@@ -136,3 +111,32 @@ function tabRemove() {
         $('#tab-list li:nth-child('+newIndex+') a').click();
     }
 }
+
+CodeMirror.modeURL = 'js/mode/%N/%N.js';
+
+CodeMirror.modeInfo.forEach(meta => {
+    modeData.push({id: meta.mime, mode: meta.mode, text: meta.name});
+});
+
+addEditorTab();
+
+if ($('[data-toggle="select"]').length) {
+     modeSelect = $('[data-toggle="select"]').select2({
+        data: modeData,
+        dropdownCssClass: 'show-select-search'
+    });
+
+    modeSelect.on('change', e => {
+        let editor = editors[$('#tab-list li.active a').data('id')],
+            mode = e.val || modeSelect.val() || 'text/plain';
+
+        editor.setOption('mode', mode);
+        CodeMirror.autoLoadMode(editor, CodeMirror.findModeByMIME(mode).mode);
+
+        editor.focus();
+    });
+
+    modeSelect.val('text/plain').trigger('change');
+}
+
+$('#page-container').css({'visibility': 'visible'});

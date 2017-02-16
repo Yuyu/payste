@@ -1,0 +1,22 @@
+{
+  "name": "payste",
+  "version": "1.0.0",
+  "description": "A minimal pastebin with encryption and syntax highlighting writte in PHP",
+  "main": "-",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Yuyu/payste"
+  },
+  "author": "Yuyu",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "fulls1z3/webpack#v2.2.1-harmony"
+  },
+  "dependencies": {}
+}

@@ -3,7 +3,7 @@
 @section('title', 'payste')
 
 @push('scripts')
-    <script type="text/javascript" defer src="js/index.js"></script>
+    <script type="text/javascript" src="js/dist/index.js"></script>
 @endpush
 
 @section('content')
@@ -12,7 +12,7 @@
             <div class="form-group row">
                 <div class="col-xs-12">
                     <ul class="nav nav-tabs" role="tablist" id="tab-list">
-                        <li id="add-editor-button"><a onclick="addEditorTab()" href="#"><span class="glyphicon glyphicon-plus"></span></a></li>
+                        <li id="add-editor-button"><a onclick="index.addEditorTab()" href="#"><span class="glyphicon glyphicon-plus"></span></a></li>
                     </ul>
                     <div class="tab-content" id="tab-content">
                     </div>
@@ -20,7 +20,7 @@
             </div>
             <div class="form-group row">
                 <div class="col-xs-3">
-                    <div class="btn btn-block btn-lg btn-primary" onclick="doPaste()">Paste!</div>
+                    <div class="btn btn-block btn-lg btn-primary" onclick="index.doPaste()">Paste!</div>
                 </div>
                 <div class="col-xs-9 text-right" style="margin-top: -28px;">
                     <label for="modes">Syntax scheme:

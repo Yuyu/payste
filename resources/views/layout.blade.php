@@ -12,7 +12,7 @@
         @stack('stylesheets')
     </head>
     <body>
-        <div class="container">
+        <div class="container" id="page-container">
             <div class="row">
                 @include('header')
             </div>
@@ -23,14 +23,10 @@
                 @include('footer')
             </div>
         </div>
-        <script type="text/javascript" defer src="js/vendor/jquery.min.js"></script>
-        <script type="text/javascript" defer src="js/flat-ui.min.js"></script>
-        <script type="text/javascript" defer src="js/codemirror.min.js"></script>
-        <script type="text/javascript" defer src="js/addon/mode/loadmode.js"></script>
-        <script type="text/javascript" defer src="js/mode/meta.js"></script>
-        <script type="text/javascript" async src="js/crypto-js/crypto-js.min.js"></script>
-        <script type="text/javascript" async src="js/chance.min.js"></script>
-        <script type="text/javascript" async src="js/encryption.js"></script>
+        <script type="text/javascript" src="js/codemirror.min.js"></script>
+        <script type="text/javascript" src="js/addon/mode/loadmode.js"></script>
+        <script type="text/javascript" src="js/mode/meta.js"></script>
+        <script type="text/javascript" src="js/dist/vendor.js"></script>
         @stack('scripts')
     </body>
 </html>

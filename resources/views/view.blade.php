@@ -3,7 +3,7 @@
 @section('title', sprintf('Paste created at %s '.env('APP_TIMEZONE', 'UTC'), $created_at))
 
 @push('scripts')
-    <script type="text/javascript" defer src="js/view.js"></script>
+    <script type="text/javascript" defer src="js/dist/view.js"></script>
 @endpush
 
 @section('content')
