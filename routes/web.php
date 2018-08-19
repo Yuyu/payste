@@ -11,14 +11,14 @@
 |
 */
 
-$app->get('/', ["as" => "index", function () use ($app) {
+$router->get('/', ["as" => "index", function () use ($router) {
     return view("index");
 }]);
 
-$app->get('/faq', ["as" => "faq", function() use ($app) {
+$router->get('/faq', ["as" => "faq", function() use ($router) {
     return view("faq");
 }]);
 
-$app->get("/{token}", ["uses" => "PasteController@view", "as" => "view_paste"]);
-$app->get("/{token}/raw", ["uses" => "PasteController@viewRaw", "as" => "view_paste_raw"]);
-$app->post("/", ["uses" => "PasteController@store", "as" => "store_paste"]);
+$router->get("/{token}", ["uses" => "PasteController@view", "as" => "view_paste"]);
+$router->get("/{token}/raw", ["uses" => "PasteController@viewRaw", "as" => "view_paste_raw"]);
+$router->post("/", ["uses" => "PasteController@store", "as" => "store_paste"]);
